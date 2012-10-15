@@ -1,3 +1,4 @@
 <Modules>
   <Module PersistentId="1977E367-1AA6-4A79-92B7-7F151EB55523" ModuleId="CalculatorTDD" />
+  <Module PersistentId="C8FCCCF7-8637-46F3-BDF8-4C581C8ED1C4" ModuleId="CalculatorTDD.Tests" />
 </Modules>
