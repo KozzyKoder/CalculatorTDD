@@ -7,16 +7,24 @@ using Xunit;
 namespace CalculatorTDD.Tests
 {
     
+    
     public class CalculatorTDDTests
     {
         [Fact]
-        public void CalculatorExpressionShouldNotBeEmotyOrNull()
+        public void CalculatorExpressionShouldNotBeEmpty()
         {
             const string emptyExpression = "";
-            const string nullExpression = null;
             var calculator = new Calculator();
 
             Assert.Throws(typeof(ArgumentException), () => calculator.Calculate(emptyExpression));
+        }
+        
+        [Fact]
+        public void CalculatorExpressionShouldNotBeNull()
+        {
+            const string nullExpression = null;
+            var calculator = new Calculator();
+
             Assert.Throws(typeof(ArgumentException), () => calculator.Calculate(nullExpression));
         }
     }
