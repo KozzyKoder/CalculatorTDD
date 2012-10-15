@@ -37,13 +37,30 @@ namespace CalculatorTDD.Tests
             Assert.Equal(3, result);
         }
 
-        /*[Fact]
+        [Fact]
         public void CalculatorSimpleAdditionOf5And6Returns11()
         {
             var calculator = new Calculator();
 
             var result = calculator.Calculate("5+6");
             Assert.Equal(11, result);
-        }*/
+        }
+
+        [Fact]
+        public void CalculatorSimpleAdditionOf5And6And8Returns19()
+        {
+            var calculator = new Calculator();
+
+            var result = calculator.Calculate("5+6+8");
+            Assert.Equal(19, result);
+        }
+
+        [Fact]
+        public void CalculatorSimpleAdditionNonNumberOperandsThrowsException()
+        {
+            var calculator = new Calculator();
+
+            Assert.Throws(typeof (ArgumentException), () => calculator.Calculate("5+6+b"));
+        }
     }
 }
