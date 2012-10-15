@@ -62,5 +62,14 @@ namespace CalculatorTDD.Tests
 
             Assert.Throws(typeof (ArgumentException), () => calculator.Calculate("5+6+b"));
         }
+
+        [Fact]
+        public void CalculatorSimpleMultOf3And2Returns6()
+        {
+            var calculator = new Calculator();
+
+            var result = calculator.Calculate("3*2");
+            Assert.Equal(6, result);
+        }
     }
 }
