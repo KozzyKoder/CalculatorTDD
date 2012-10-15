@@ -33,7 +33,7 @@ namespace CalculatorTDD.Tests
 
             var output = rpnTransformer.Transform("2+5");
 
-            Assert.Equal(output, "2 5 +");
+            Assert.Equal("2 5 +", output);
         }
     }
 }
