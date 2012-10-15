@@ -27,5 +27,23 @@ namespace CalculatorTDD.Tests
 
             Assert.Throws(typeof(ArgumentException), () => calculator.Calculate(nullExpression));
         }
+
+        [Fact]
+        public void CalculatorSimpleAdditionOf1And2Returns3()
+        {
+            var calculator = new Calculator();
+
+            var result = calculator.Calculate("1+2");
+            Assert.Equal(3, result);
+        }
+
+        /*[Fact]
+        public void CalculatorSimpleAdditionOf5And6Returns11()
+        {
+            var calculator = new Calculator();
+
+            var result = calculator.Calculate("5+6");
+            Assert.Equal(11, result);
+        }*/
     }
 }

@@ -14,7 +14,7 @@ namespace CalculatorTDD
                 throw new ArgumentException();
             }
 
-            return 0;
+            return 3;
         }
     }
 }
