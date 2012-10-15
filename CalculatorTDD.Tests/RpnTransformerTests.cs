@@ -35,5 +35,25 @@ namespace CalculatorTDD.Tests
 
             Assert.Equal("2 5 +", output);
         }
+
+        [Fact]
+        public void SimpleAddNumberToMultiplicatedNumbersWithoutBrackets()
+        {
+            var rpnTransformer = new RpnTransformer();
+
+            var output = rpnTransformer.Transform("2+5*3");
+
+            Assert.Equal("2 5 3 * +", output);
+        }
+
+        [Fact]
+        public void SimpleAddNumberToMultiplicatedNumbersWithoutBracketsAnotherOrder()
+        {
+            var rpnTransformer = new RpnTransformer();
+
+            var output = rpnTransformer.Transform("5*3+2");
+
+            Assert.Equal("5 3 * 2 +", output);
+        }
     }
 }

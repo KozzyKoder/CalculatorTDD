@@ -4,10 +4,15 @@ using System.Linq;
 using System.Text;
 
 namespace CalculatorTDD
-{
+{ 
     public class RpnTransformer
     {
         private static readonly Stack<string> SymbolsStack = new Stack<string>();
+        private static Dictionary<string, int> Priorities = new Dictionary<string, int>()
+                                                                {
+                                                                    {"+", 0},
+                                                                    {"*", 1}
+                                                                };
 
         public string Transform(string input)
         {
@@ -28,8 +33,18 @@ namespace CalculatorTDD
                         s += input[i];
                 else
                 {
-                    SymbolsStack.Push(input[pos].ToString());
-                    isNumber = false;
+                    if (SymbolsStack.Count != 0  && Priorities[input[pos].ToString()] < Priorities[SymbolsStack.Peek()])
+                    {
+                        var operation = SymbolsStack.Pop();
+                        SymbolsStack.Push(s);
+                        s = operation;
+                    }
+                    else
+                    {
+                        SymbolsStack.Push(input[pos].ToString());
+                        isNumber = false;
+                    }
+                    
                 }
 
                 pos += s.Length;
