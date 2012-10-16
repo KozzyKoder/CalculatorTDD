@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using CalculatorTDD.Operations;
 
 namespace CalculatorTDD
 {
@@ -26,7 +27,7 @@ namespace CalculatorTDD
                         {
                             var number1 = evalStack.Pop();
                             var number2 = evalStack.Pop();
-                            var result = number1*number2;
+                            var result = new MultiplicationOperation().Execute(number1, number2);
                             evalStack.Push(result);
                             break;
                         }
@@ -34,7 +35,7 @@ namespace CalculatorTDD
                         {
                             var number1 = evalStack.Pop();
                             var number2 = evalStack.Pop();
-                            var result = (int)Math.Floor((double)(number1 / number2));
+                            var result = new DivisionOperation().Execute(number1, number2);
                             evalStack.Push(result);
                             break;
                         }
@@ -42,7 +43,7 @@ namespace CalculatorTDD
                         {
                             var number1 = evalStack.Pop();
                             var number2 = evalStack.Pop();
-                            var result = number1+number2;
+                            var result = new AdditionOperation().Execute(number1, number2);
                             evalStack.Push(result);
                             break;
                         }
@@ -50,7 +51,7 @@ namespace CalculatorTDD
                         {
                             var number1 = evalStack.Pop();
                             var number2 = evalStack.Pop();
-                            var result = number1 - number2;
+                            var result = new SubtractionOperation().Execute(number1, number2);
                             evalStack.Push(result);
                             break;
                         }
