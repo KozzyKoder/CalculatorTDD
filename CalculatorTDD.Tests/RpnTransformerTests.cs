@@ -8,6 +8,8 @@ namespace CalculatorTDD.Tests
 {
     public class RpnTransformerTests
     {
+        
+        
         [Fact]
         public void InputIsNotEmpty()
         {
