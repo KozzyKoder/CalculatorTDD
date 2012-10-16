@@ -7,28 +7,67 @@ namespace CalculatorTDD
 {
     public class Calculator
     {
+        private Stack<int> evalStack = new Stack<int>();
+        
         public int Calculate(string expression)
         {
             if (string.IsNullOrEmpty(expression))
             {
                 throw new ArgumentException();
             }
-            
-            int result = 0;
-            var operands = expression.Split(new char[] {'+'});
-            foreach (var operand in operands)
+
+            var transformer = new RpnTransformer();
+            var rpnExpressionSymbols = transformer.Transform(expression).Split(new char[] {' '});
+            foreach (var symbol in rpnExpressionSymbols)
             {
-                var addedValue = 0;
-                if (int.TryParse(operand, out addedValue))
+                switch (symbol)
                 {
-                    result += addedValue;
-                }
-                else
-                {
-                    throw new ArgumentException();
+                    case "*" :
+                        {
+                            var number1 = evalStack.Pop();
+                            var number2 = evalStack.Pop();
+                            var result = number1*number2;
+                            evalStack.Push(result);
+                            break;
+                        }
+                    case "/" :
+                        {
+                            var number1 = evalStack.Pop();
+                            var number2 = evalStack.Pop();
+                            var result = (int)Math.Floor((double)(number1 / number2));
+                            evalStack.Push(result);
+                            break;
+                        }
+                    case "+" :
+                        {
+                            var number1 = evalStack.Pop();
+                            var number2 = evalStack.Pop();
+                            var result = number1+number2;
+                            evalStack.Push(result);
+                            break;
+                        }
+                    case "-" :
+                        {
+                            var number1 = evalStack.Pop();
+                            var number2 = evalStack.Pop();
+                            var result = number1 - number2;
+                            evalStack.Push(result);
+                            break;
+                        }
+                    default:
+                        {
+                            var numberValue = 0;
+                            if (!int.TryParse(symbol, out numberValue))
+                            {
+                                throw new ArgumentException();
+                            }
+                            evalStack.Push(numberValue);
+                            break;
+                        }
                 }
             }
-            return result;
+            
+            return evalStack.Pop();
         }
     }
 }
