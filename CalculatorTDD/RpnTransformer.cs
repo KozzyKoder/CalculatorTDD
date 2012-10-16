@@ -7,11 +7,13 @@ namespace CalculatorTDD
 { 
     public class RpnTransformer
     {
-        private static readonly Stack<string> SymbolsStack = new Stack<string>();
+        private readonly Stack<string> SymbolsStack = new Stack<string>();
         private static Dictionary<string, int> Priorities = new Dictionary<string, int>()
                                                                 {
                                                                     {"+", 0},
-                                                                    {"*", 1}
+                                                                    {"*", 1},
+                                                                    {"/", 1},
+                                                                    {"-", 0}
                                                                 };
 
         public string Transform(string input)
@@ -33,18 +35,53 @@ namespace CalculatorTDD
                         s += input[i];
                 else
                 {
-                    if (SymbolsStack.Count != 0  && Priorities[input[pos].ToString()] < Priorities[SymbolsStack.Peek()])
+                    if (SymbolsStack.Count != 0 && Priorities.ContainsKey(SymbolsStack.Peek()) && Priorities.ContainsKey(input[pos].ToString()) && Priorities[input[pos].ToString()] < Priorities[SymbolsStack.Peek()])
                     {
                         var operation = SymbolsStack.Pop();
                         SymbolsStack.Push(s);
                         s = operation;
+                    }
+                    else if (input[pos].ToString() == ")")
+                    {
+                        isNumber = false;
+                        s = string.Empty;
+                        bool isCloseBracketReached = false;
+                        while (SymbolsStack.Count != 0)
+                        {
+                            var symbol = SymbolsStack.Pop();
+                            if (symbol != "(")
+                            {
+                                if (s == string.Empty)
+                                {
+                                    s += ' ' + symbol;
+                                    pos += 1;
+                                }
+                                else
+                                {
+                                    s += symbol;
+                                }
+                            }
+                            else
+                            {
+                                isCloseBracketReached = true;
+                            }
+                        }
+
+                        if (!isCloseBracketReached)
+                        {
+                            throw new ArgumentException();
+                        }
+                        else
+                        {
+                            output += s;
+                            continue;
+                        }
                     }
                     else
                     {
                         SymbolsStack.Push(input[pos].ToString());
                         isNumber = false;
                     }
-                    
                 }
 
                 pos += s.Length;

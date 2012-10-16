@@ -37,6 +37,16 @@ namespace CalculatorTDD.Tests
         }
 
         [Fact]
+        public void SimpleAddTwoNumbersDifferentLengthExpression()
+        {
+            var rpnTransformer = new RpnTransformer();
+
+            var output = rpnTransformer.Transform("245+53+1");
+
+            Assert.Equal("245 53 1 + +", output);
+        }
+
+        [Fact]
         public void SimpleAddNumberToMultiplicatedNumbersWithoutBrackets()
         {
             var rpnTransformer = new RpnTransformer();
@@ -54,6 +64,26 @@ namespace CalculatorTDD.Tests
             var output = rpnTransformer.Transform("5*3+2");
 
             Assert.Equal("5 3 * 2 +", output);
+        }
+        
+        [Fact]
+        public void SimpleOperationsWithSomePrioritiesAndBrackets()
+        {
+            var rpnTransformer = new RpnTransformer();
+
+            var output = rpnTransformer.Transform("(1+2)*4+3");
+
+            Assert.Equal("1 2 + 4 * 3 +", output);
+        }
+
+        [Fact]
+        public void SimpleOperationsWithSomePrioritiesAndBracketsAndDifferentNumbersLength()
+        {
+            var rpnTransformer = new RpnTransformer();
+
+            var output = rpnTransformer.Transform("(123+23)*4444+31");
+
+            Assert.Equal("123 23 + 4444 * 31 +", output);
         }
     }
 }
