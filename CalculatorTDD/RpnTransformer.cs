@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using CalculatorTDD.Enums;
 using CalculatorTDD.Operations;
 
 namespace CalculatorTDD
@@ -10,13 +11,6 @@ namespace CalculatorTDD
     {
         private readonly Stack<char> SymbolsStack = new Stack<char>();
         private readonly Dictionary<char, IOperation> _operations;
-        private static Dictionary<char, int> Priorities = new Dictionary<char, int>()
-                                                                {
-                                                                    {'+', 0},
-                                                                    {'*', 1},
-                                                                    {'/', 1},
-                                                                    {'-', 0}
-                                                                };
 
         public RpnTransformer(Dictionary<char, IOperation> operations)
         {
@@ -47,7 +41,7 @@ namespace CalculatorTDD
                 }
                 else
                 {
-                    if (SymbolsStack.Count != 0 && Priorities.ContainsKey(SymbolsStack.Peek()) && Priorities.ContainsKey(input[pos]) && Priorities[input[pos]] < Priorities[SymbolsStack.Peek()])
+                    if (SymbolsStack.Count != 0 && _operations.ContainsKey(SymbolsStack.Peek()) && _operations.ContainsKey(input[pos]) && _operations[input[pos]].CompareTo(_operations[SymbolsStack.Peek()]) == Priority.Lesser)
                     {
                         var operation = SymbolsStack.Pop();
                         if (s.Length == 1)
@@ -101,7 +95,7 @@ namespace CalculatorTDD
                     }
                     else
                     {
-                        if (Priorities.ContainsKey(input[pos]) || input[pos] == '(')
+                        if (_operations.ContainsKey(input[pos]) || input[pos] == '(')
                         {
                             SymbolsStack.Push(input[pos]);
                             isNumber = false;
