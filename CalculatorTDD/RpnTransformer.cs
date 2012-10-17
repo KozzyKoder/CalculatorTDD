@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using CalculatorTDD.Operations;
 
 namespace CalculatorTDD
 { 
     public class RpnTransformer
     {
         private readonly Stack<string> SymbolsStack = new Stack<string>();
+        private readonly Dictionary<char, IOperation> _operations;
         private static Dictionary<string, int> Priorities = new Dictionary<string, int>()
                                                                 {
                                                                     {"+", 0},
@@ -15,6 +17,13 @@ namespace CalculatorTDD
                                                                     {"/", 1},
                                                                     {"-", 0}
                                                                 };
+
+        public RpnTransformer(Dictionary<char, IOperation> operations)
+        {
+            _operations = operations;
+        }
+
+        private RpnTransformer() {}
 
         public string Transform(string input)
         {

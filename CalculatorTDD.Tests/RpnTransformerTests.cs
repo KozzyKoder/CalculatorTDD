@@ -2,38 +2,37 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using CalculatorTDD.Operations;
+using CalculatorTDD.Tests.TestFixtures;
 using Xunit;
 
 namespace CalculatorTDD.Tests
-{
-    public class RpnTransformerTests
+{    
+    public class RpnTransformerTests : IUseFixture<OperationsSetupFixture>
     {
-        
-        
+        private RpnTransformer _transformer;
+
+        public void SetFixture(OperationsSetupFixture data)
+        {
+            _transformer = new RpnTransformer(data.Operations);
+        }
+
         [Fact]
         public void InputIsNotEmpty()
         {
-            const string input = "";
-
-            var rpnTransformer = new RpnTransformer();
-            Assert.Throws(typeof(ArgumentException), () => rpnTransformer.Transform(input));
+            Assert.Throws(typeof(ArgumentException), () => _transformer.Transform(""));
         }
 
         [Fact]
         public void InputIsNotNull()
         {
-            const string input = null;
-
-            var rpnTransformer = new RpnTransformer();
-            Assert.Throws(typeof(ArgumentException), () => rpnTransformer.Transform(input));
+            Assert.Throws(typeof(ArgumentException), () => _transformer.Transform(null));
         }
         
         [Fact]
         public void SimpleAddTwoNumbersExpression()
         {
-            var rpnTransformer = new RpnTransformer();
-
-            var output = rpnTransformer.Transform("2+5");
+            var output = _transformer.Transform("2+5");
 
             Assert.Equal("2 5 +", output);
         }
@@ -41,9 +40,7 @@ namespace CalculatorTDD.Tests
         [Fact]
         public void SimpleAddTwoNumbersDifferentLengthExpression()
         {
-            var rpnTransformer = new RpnTransformer();
-
-            var output = rpnTransformer.Transform("245+53+1");
+            var output = _transformer.Transform("245+53+1");
 
             Assert.Equal("245 53 1 + +", output);
         }
@@ -51,9 +48,7 @@ namespace CalculatorTDD.Tests
         [Fact]
         public void SimpleAddNumberToMultiplicatedNumbersWithoutBrackets()
         {
-            var rpnTransformer = new RpnTransformer();
-
-            var output = rpnTransformer.Transform("2+5*3");
+            var output = _transformer.Transform("2+5*3");
 
             Assert.Equal("2 5 3 * +", output);
         }
@@ -61,9 +56,7 @@ namespace CalculatorTDD.Tests
         [Fact]
         public void SimpleAddNumberToMultiplicatedNumbersWithoutBracketsAnotherOrder()
         {
-            var rpnTransformer = new RpnTransformer();
-
-            var output = rpnTransformer.Transform("5*3+2");
+            var output = _transformer.Transform("5*3+2");
 
             Assert.Equal("5 3 * 2 +", output);
         }
@@ -71,9 +64,7 @@ namespace CalculatorTDD.Tests
         [Fact]
         public void SimpleOperationsWithSomePrioritiesAndBrackets()
         {
-            var rpnTransformer = new RpnTransformer();
-
-            var output = rpnTransformer.Transform("(1+2)*4+3");
+            var output = _transformer.Transform("(1+2)*4+3");
 
             Assert.Equal("1 2 + 4 * 3 +", output);
         }
@@ -81,9 +72,7 @@ namespace CalculatorTDD.Tests
         [Fact]
         public void SimpleOperationsWithSomePrioritiesAndBracketsAndDifferentNumbersLength()
         {
-            var rpnTransformer = new RpnTransformer();
-
-            var output = rpnTransformer.Transform("(123+23)*4444+31");
+            var output = _transformer.Transform("(123+23)*4444+31");
 
             Assert.Equal("123 23 + 4444 * 31 +", output);
         }
@@ -91,17 +80,14 @@ namespace CalculatorTDD.Tests
         [Fact]
         public void UnmatchedOpenBracket()
         {
-            var rpnTransformer = new RpnTransformer();
 
-            Assert.Throws(typeof (FormatException), () => rpnTransformer.Transform("(123+23*4444+31"));
+            Assert.Throws(typeof(FormatException), () => _transformer.Transform("(123+23*4444+31"));
         }
 
         [Fact]
         public void UnmatchedCloseBracket()
         {
-            var rpnTransformer = new RpnTransformer();
-
-            Assert.Throws(typeof(FormatException), () => rpnTransformer.Transform("123+23)*4444+31"));
+            Assert.Throws(typeof(FormatException), () => _transformer.Transform("123+23)*4444+31"));
         }
     }
 }

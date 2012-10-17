@@ -8,16 +8,16 @@ namespace CalculatorTDD
 {
     public class Calculator
     {
-        private Stack<int> evalStack = new Stack<int>();
-
-        private Dictionary<char, IOperation> operations = new Dictionary<char, IOperation>()
-                                                              {
-                                                                  {'*', new MultiplicationOperation()},
-                                                                  {'/', new DivisionOperation()},
-                                                                  {'+', new AdditionOperation()},
-                                                                  {'-', new SubtractionOperation()}
-                                                              };
+        private readonly Stack<int> _evalStack = new Stack<int>();
+        private readonly Dictionary<char, IOperation> _operations;
         
+        public Calculator(Dictionary<char, IOperation> operations)
+        {
+            _operations = operations;
+        }
+        
+        private Calculator() {}
+
         public int Calculate(string expression)
         {
             if (string.IsNullOrEmpty(expression))
@@ -25,7 +25,7 @@ namespace CalculatorTDD
                 throw new ArgumentException();
             }
 
-            var transformer = new RpnTransformer();
+            var transformer = new RpnTransformer(_operations);
             var rpnExpressionSymbols = transformer.Transform(expression).Split(new char[] {' '});
             foreach (var symbol in rpnExpressionSymbols)
             {
@@ -40,18 +40,18 @@ namespace CalculatorTDD
                         {
                             throw new ArgumentException();
                         }
-                        evalStack.Push(numberValue);
+                        _evalStack.Push(numberValue);
                         continue;
                     }
                 }
                 
-                if (operations.ContainsKey(chr))
+                if (_operations.ContainsKey(chr))
                 {
-                    var number1 = evalStack.Pop();
-                    var number2 = evalStack.Pop();
-                    var operation = operations[chr];
+                    var number1 = _evalStack.Pop();
+                    var number2 = _evalStack.Pop();
+                    var operation = _operations[chr];
                     var result = operation.Execute(number1, number2);
-                    evalStack.Push(result);
+                    _evalStack.Push(result);
                 }
                 else
                 {
@@ -59,7 +59,7 @@ namespace CalculatorTDD
                 }
             }
             
-            return evalStack.Pop();
+            return _evalStack.Pop();
         }
     }
 }
