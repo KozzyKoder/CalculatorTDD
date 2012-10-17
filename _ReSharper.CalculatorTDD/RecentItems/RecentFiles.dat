@@ -1,4 +1,38 @@
 ﻿<RecentFiles>
-  <RecentFiles />
-  <RecentEdits />
+  <RecentFiles>
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Enums/f:TokenKind.cs" caret="113" fromTop="6" />
+    <File id="C8FCCCF7-8637-46F3-BDF8-4C581C8ED1C4/f:LexerTests.cs" caret="939" fromTop="27" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/f:Lexer.cs" caret="974" fromTop="20" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/f:Token.cs" caret="1043" fromTop="31" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Operations/f:MultiplicationOperation.cs" caret="768" fromTop="29" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Operations/f:SubtractionOperation.cs" caret="554" fromTop="24" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Operations/f:AdditionOperation.cs" caret="400" fromTop="16" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Operations/f:IOperation.cs" caret="136" fromTop="7" />
+    <File id="C8FCCCF7-8637-46F3-BDF8-4C581C8ED1C4/f:RpnTransformerTests.cs" caret="663" fromTop="0" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/f:RpnTransformer.cs" caret="1314" fromTop="0" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/f:Calculator.cs" caret="1821" fromTop="31" />
+    <File id="C8FCCCF7-8637-46F3-BDF8-4C581C8ED1C4/f:CalculatorTests.cs" caret="1810" fromTop="17" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Operations/f:DivisionOperation.cs" caret="525" fromTop="21" />
+    <File id="C8FCCCF7-8637-46F3-BDF8-4C581C8ED1C4/d:TestFixtures/f:OperationsSetupFixture.cs" caret="211" fromTop="8" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/f:Program.cs" caret="250" fromTop="15" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Enums/f:Priorities.cs" caret="221" fromTop="11" />
+    <File id="C8FCCCF7-8637-46F3-BDF8-4C581C8ED1C4/f:packages.config" caret="0" fromTop="0" />
+  </RecentFiles>
+  <RecentEdits>
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Enums/f:Priorities.cs" caret="150" fromTop="7" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Operations/f:MultiplicationOperation.cs" caret="688" fromTop="27" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Operations/f:SubtractionOperation.cs" caret="554" fromTop="24" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Operations/f:IOperation.cs" caret="136" fromTop="7" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Operations/f:AdditionOperation.cs" caret="201" fromTop="7" />
+    <File id="C8FCCCF7-8637-46F3-BDF8-4C581C8ED1C4/d:TestFixtures/f:OperationsSetupFixture.cs" caret="855" fromTop="16" />
+    <File id="C8FCCCF7-8637-46F3-BDF8-4C581C8ED1C4/f:RpnTransformerTests.cs" caret="495" fromTop="17" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Operations/f:DivisionOperation.cs" caret="630" fromTop="26" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/f:Calculator.cs" caret="1821" fromTop="31" />
+    <File id="C8FCCCF7-8637-46F3-BDF8-4C581C8ED1C4/f:CalculatorTests.cs" caret="1810" fromTop="17" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/f:RpnTransformer.cs" caret="3862" fromTop="17" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Enums/f:TokenKind.cs" caret="18" fromTop="0" />
+    <File id="C8FCCCF7-8637-46F3-BDF8-4C581C8ED1C4/f:LexerTests.cs" caret="282" fromTop="11" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/f:Token.cs" caret="375" fromTop="16" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/f:Lexer.cs" caret="691" fromTop="22" />
+  </RecentEdits>
 </RecentFiles>
