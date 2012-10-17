@@ -87,5 +87,21 @@ namespace CalculatorTDD.Tests
 
             Assert.Equal("123 23 + 4444 * 31 +", output);
         }
+
+        [Fact]
+        public void UnmatchedOpenBracket()
+        {
+            var rpnTransformer = new RpnTransformer();
+
+            Assert.Throws(typeof (FormatException), () => rpnTransformer.Transform("(123+23*4444+31"));
+        }
+
+        [Fact]
+        public void UnmatchedCloseBracket()
+        {
+            var rpnTransformer = new RpnTransformer();
+
+            Assert.Throws(typeof(FormatException), () => rpnTransformer.Transform("123+23)*4444+31"));
+        }
     }
 }

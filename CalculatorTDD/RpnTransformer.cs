@@ -69,7 +69,7 @@ namespace CalculatorTDD
 
                         if (!isCloseBracketReached)
                         {
-                            throw new ArgumentException();
+                            throw new FormatException();
                         }
                         else
                         {
@@ -79,8 +79,16 @@ namespace CalculatorTDD
                     }
                     else
                     {
-                        SymbolsStack.Push(input[pos].ToString());
-                        isNumber = false;
+                        if (Priorities.ContainsKey(input[pos].ToString()) || input[pos] == '(')
+                        {
+                            SymbolsStack.Push(input[pos].ToString());
+                            isNumber = false;
+                        }
+                        else
+                        {
+                            throw new ArgumentException();
+                        }
+                        
                     }
                 }
 
@@ -101,7 +109,13 @@ namespace CalculatorTDD
 
             while (SymbolsStack.Count != 0)
             {
-                output += ' ' + SymbolsStack.Pop();
+                var symbol = SymbolsStack.Pop();
+                if (symbol == "(" || symbol == ")")
+                {
+                    throw new FormatException();
+                }
+
+                output += ' ' + symbol;
             }
 
             return output;

@@ -21,9 +21,25 @@ namespace CalculatorTDD
             var rpnExpressionSymbols = transformer.Transform(expression).Split(new char[] {' '});
             foreach (var symbol in rpnExpressionSymbols)
             {
-                switch (symbol)
+                char chr = '\n';
+                if (symbol.Length == 1)
                 {
-                    case "*" :
+                    chr = Convert.ToChar(symbol);
+                    if (Char.IsDigit(chr))
+                    {
+                        var numberValue = 0;
+                        if (!int.TryParse(symbol, out numberValue))
+                        {
+                            throw new ArgumentException();
+                        }
+                        evalStack.Push(numberValue);
+                        continue;
+                    }
+                }
+                
+                switch (chr)
+                {
+                    case '*' :
                         {
                             var number1 = evalStack.Pop();
                             var number2 = evalStack.Pop();
@@ -31,7 +47,7 @@ namespace CalculatorTDD
                             evalStack.Push(result);
                             break;
                         }
-                    case "/" :
+                    case '/' :
                         {
                             var number1 = evalStack.Pop();
                             var number2 = evalStack.Pop();
@@ -39,7 +55,7 @@ namespace CalculatorTDD
                             evalStack.Push(result);
                             break;
                         }
-                    case "+" :
+                    case '+' :
                         {
                             var number1 = evalStack.Pop();
                             var number2 = evalStack.Pop();
@@ -47,22 +63,12 @@ namespace CalculatorTDD
                             evalStack.Push(result);
                             break;
                         }
-                    case "-" :
+                    case '-' :
                         {
                             var number1 = evalStack.Pop();
                             var number2 = evalStack.Pop();
                             var result = new SubtractionOperation().Execute(number1, number2);
                             evalStack.Push(result);
-                            break;
-                        }
-                    default:
-                        {
-                            var numberValue = 0;
-                            if (!int.TryParse(symbol, out numberValue))
-                            {
-                                throw new ArgumentException();
-                            }
-                            evalStack.Push(numberValue);
                             break;
                         }
                 }
