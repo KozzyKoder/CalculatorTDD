@@ -42,7 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppSettings.cs" />
     <Compile Include="Enums\Priorities.cs" />
+    <Compile Include="ILexer.cs" />
+    <Compile Include="ITransformer.cs" />
     <Compile Include="Lexer.cs" />
     <Compile Include="Operations\AdditionOperation.cs" />
     <Compile Include="Calculator.cs" />

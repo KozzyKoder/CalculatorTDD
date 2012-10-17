@@ -7,7 +7,7 @@ using CalculatorTDD.Operations;
 
 namespace CalculatorTDD
 {
-    public class Transformer
+    public class Transformer : ITransformer
     {
         private readonly Stack<Token> SymbolsStack = new Stack<Token>();
         private readonly Dictionary<char, IOperation> _operations;

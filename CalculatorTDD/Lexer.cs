@@ -8,7 +8,7 @@ using CalculatorTDD.Operations;
 
 namespace CalculatorTDD
 {
-    public class Lexer
+    public class Lexer : ILexer
     {
         private readonly Dictionary<char, IOperation> _operations;
         private readonly Stack<Token> _tokens = new Stack<Token>();

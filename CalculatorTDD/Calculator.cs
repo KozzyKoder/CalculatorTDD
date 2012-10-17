@@ -10,10 +10,14 @@ namespace CalculatorTDD
     {
         private readonly Stack<int> _evalStack = new Stack<int>();
         private readonly Dictionary<char, IOperation> _operations;
-        
+        public ILexer _lexer { get; set; }
+        public ITransformer _transformer { get; set; }
+
         public Calculator(Dictionary<char, IOperation> operations)
         {
             _operations = operations;
+            _lexer = new Lexer(_operations);
+            _transformer = new Transformer(_operations);
         }
         
         private Calculator() {}
