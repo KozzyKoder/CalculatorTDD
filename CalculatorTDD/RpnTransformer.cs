@@ -28,6 +28,7 @@ namespace CalculatorTDD
 
             int pos = 0;
             string output = string.Empty;
+            bool isPreviousSymbolOperation = false;
             while (pos < input.Length)
             {
                 string s = string.Empty + input[pos];
@@ -38,11 +39,17 @@ namespace CalculatorTDD
                     {
                         s += input[i];
                     }
+                    isPreviousSymbolOperation = false;
                 }
                 else
                 {
                     if (SymbolsStack.Count != 0 && _operations.ContainsKey(SymbolsStack.Peek()) && _operations.ContainsKey(input[pos]) && _operations[input[pos]].CompareTo(_operations[SymbolsStack.Peek()]) == Priority.Lesser)
                     {
+                        if (isPreviousSymbolOperation)
+                        {
+                            throw new FormatException();
+                        }
+
                         var operation = SymbolsStack.Pop();
                         if (s.Length == 1)
                         {
@@ -55,6 +62,7 @@ namespace CalculatorTDD
                         }
                         
                         s = operation.ToString();
+                        isPreviousSymbolOperation = true;
                     }
                     else if (input[pos].ToString() == ")")
                     {
@@ -82,7 +90,8 @@ namespace CalculatorTDD
                                 isCloseBracketReached = true;
                             }
                         }
-
+                        
+                        isPreviousSymbolOperation = false;
                         if (!isCloseBracketReached)
                         {
                             throw new FormatException();
@@ -97,8 +106,13 @@ namespace CalculatorTDD
                     {
                         if (_operations.ContainsKey(input[pos]) || input[pos] == '(')
                         {
+                            if (isPreviousSymbolOperation)
+                            {
+                                throw new FormatException();
+                            }
                             SymbolsStack.Push(input[pos]);
                             isNumber = false;
+                            isPreviousSymbolOperation = true;
                         }
                         else
                         {

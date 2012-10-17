@@ -59,6 +59,12 @@ namespace CalculatorTDD.Tests
         }
 
         [Fact]
+        public void OperationsWithoutOperands()
+        {
+            Assert.Throws(typeof(FormatException), () => calculator.Calculate("5+/6+b"));
+        }
+
+        [Fact]
         public void CalculatorSimpleMultOf3And2Returns6()
         {
             var result = calculator.Calculate("3*2");
@@ -104,6 +110,13 @@ namespace CalculatorTDD.Tests
         {
             var result = calculator.Calculate("4/5");
             Assert.Equal(0, result);
+        }
+
+        [Fact]
+        public void SimpleMultOfNegativeNumber()
+        {
+            var result = calculator.Calculate("(1-2)*5");
+            Assert.Equal(-5, result);
         }
     }
 }
