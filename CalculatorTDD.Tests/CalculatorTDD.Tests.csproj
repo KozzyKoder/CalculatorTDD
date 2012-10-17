@@ -53,9 +53,9 @@
     <Compile Include="Tests\LexerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\CalculatorTests.cs" />
-    <Compile Include="Tests\RpnTransformerTests.cs" />
     <Compile Include="TestFixtures\OperationsSetupFixture.cs" />
     <Compile Include="TestHelpers\CollectionEquivalenceComparer.cs" />
+    <Compile Include="Tests\TransformerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

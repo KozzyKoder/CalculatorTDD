@@ -52,7 +52,7 @@ namespace CalculatorTDD.Tests.Tests
         [Fact]
         public void CalculatorSimpleAdditionNonNumberOperandsThrowsException()
         {
-            Assert.Throws(typeof (ArgumentException), () => calculator.Calculate("5+6+b"));
+            Assert.Throws(typeof (FormatException), () => calculator.Calculate("5+6+b"));
         }
 
         [Fact]

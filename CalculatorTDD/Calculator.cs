@@ -25,18 +25,22 @@ namespace CalculatorTDD
                 throw new ArgumentException();
             }
 
-            var transformer = new RpnTransformer(_operations);
-            var rpnExpressionSymbols = transformer.Transform(expression).Split(new char[] {' '});
-            foreach (var symbol in rpnExpressionSymbols)
+            var lexer = new Lexer(_operations);
+            var transformer = new Transformer(_operations);
+
+            var lexems = lexer.Tokenize(expression).ToList();
+
+            var RevPolNotTokens = transformer.Transform(lexems);
+            foreach (var token in RevPolNotTokens)
             {
                 char chr = '\n';
-                if (symbol.Length == 1)
+                if (token.Text.Length == 1)
                 {
-                    chr = Convert.ToChar(symbol);
+                    chr = Convert.ToChar(token.Text);
                     if (Char.IsDigit(chr))
                     {
                         var numberValue = 0;
-                        if (!int.TryParse(symbol, out numberValue))
+                        if (!int.TryParse(token.Text, out numberValue))
                         {
                             throw new ArgumentException();
                         }

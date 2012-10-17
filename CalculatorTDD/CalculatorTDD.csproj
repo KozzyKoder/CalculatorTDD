@@ -50,12 +50,11 @@
     <Compile Include="Operations\IOperation.cs" />
     <Compile Include="Operations\MultiplicationOperation.cs" />
     <Compile Include="Operations\SubtractionOperation.cs" />
-    <Compile Include="Validator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RpnTransformer.cs" />
     <Compile Include="Token.cs" />
     <Compile Include="Enums\TokenKind.cs" />
+    <Compile Include="Transformer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

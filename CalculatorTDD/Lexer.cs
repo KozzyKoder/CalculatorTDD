@@ -43,9 +43,9 @@ namespace CalculatorTDD
                     pos += nextTokenText.Length;
                     yield return token;
                 }
-                else if ((_tokens.Count != 0 && _tokens.Peek().Kind == TokenKind.Operation && (nextSymbol.ToString() == "+" || nextSymbol.ToString() == "-")) ||
-                         (_tokens.Count != 0 && _tokens.Peek().Kind == TokenKind.Bracket && _tokens.Peek().Text != ")" && (nextSymbol.ToString() == "+" || nextSymbol.ToString() == "-")) ||
-                         (_tokens.Count == 0 && (nextSymbol.ToString() == "+" || nextSymbol.ToString() == "-")))
+                else if ((_tokens.Count != 0 && _tokens.Peek().Kind == TokenKind.Operation && (nextSymbol == '+' || nextSymbol == '-')) ||
+                         (_tokens.Count != 0 && _tokens.Peek().Kind == TokenKind.Bracket && _tokens.Peek().Text != ")" && (nextSymbol == '+' || nextSymbol == '-')) ||
+                         (_tokens.Count == 0 && (nextSymbol == '+' || nextSymbol == '-')))
                 {
                     for (int i = pos + 1; (i < input.Length) && (Char.IsDigit(input[i])); i++)
                     {
@@ -56,7 +56,7 @@ namespace CalculatorTDD
                     pos += nextTokenText.Length;
                     yield return token;
                 }
-                else if (nextSymbol.ToString() == ")" || nextSymbol.ToString() == "(")
+                else if (nextSymbol == ')' || nextSymbol == '(')
                 {
                     var token = Token.Bracket(nextSymbol.ToString(CultureInfo.InvariantCulture));
                     _tokens.Push(token);
