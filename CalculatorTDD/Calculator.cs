@@ -9,6 +9,14 @@ namespace CalculatorTDD
     public class Calculator
     {
         private Stack<int> evalStack = new Stack<int>();
+
+        private Dictionary<char, IOperation> operations = new Dictionary<char, IOperation>()
+                                                              {
+                                                                  {'*', new MultiplicationOperation()},
+                                                                  {'/', new DivisionOperation()},
+                                                                  {'+', new AdditionOperation()},
+                                                                  {'-', new SubtractionOperation()}
+                                                              };
         
         public int Calculate(string expression)
         {
@@ -37,40 +45,17 @@ namespace CalculatorTDD
                     }
                 }
                 
-                switch (chr)
+                if (operations.ContainsKey(chr))
                 {
-                    case '*' :
-                        {
-                            var number1 = evalStack.Pop();
-                            var number2 = evalStack.Pop();
-                            var result = new MultiplicationOperation().Execute(number1, number2);
-                            evalStack.Push(result);
-                            break;
-                        }
-                    case '/' :
-                        {
-                            var number1 = evalStack.Pop();
-                            var number2 = evalStack.Pop();
-                            var result = new DivisionOperation().Execute(number1, number2);
-                            evalStack.Push(result);
-                            break;
-                        }
-                    case '+' :
-                        {
-                            var number1 = evalStack.Pop();
-                            var number2 = evalStack.Pop();
-                            var result = new AdditionOperation().Execute(number1, number2);
-                            evalStack.Push(result);
-                            break;
-                        }
-                    case '-' :
-                        {
-                            var number1 = evalStack.Pop();
-                            var number2 = evalStack.Pop();
-                            var result = new SubtractionOperation().Execute(number1, number2);
-                            evalStack.Push(result);
-                            break;
-                        }
+                    var number1 = evalStack.Pop();
+                    var number2 = evalStack.Pop();
+                    var operation = operations[chr];
+                    var result = operation.Execute(number1, number2);
+                    evalStack.Push(result);
+                }
+                else
+                {
+                    throw new InvalidOperationException();
                 }
             }
             
