@@ -8,14 +8,14 @@ namespace CalculatorTDD
 { 
     public class RpnTransformer
     {
-        private readonly Stack<string> SymbolsStack = new Stack<string>();
+        private readonly Stack<char> SymbolsStack = new Stack<char>();
         private readonly Dictionary<char, IOperation> _operations;
-        private static Dictionary<string, int> Priorities = new Dictionary<string, int>()
+        private static Dictionary<char, int> Priorities = new Dictionary<char, int>()
                                                                 {
-                                                                    {"+", 0},
-                                                                    {"*", 1},
-                                                                    {"/", 1},
-                                                                    {"-", 0}
+                                                                    {'+', 0},
+                                                                    {'*', 1},
+                                                                    {'/', 1},
+                                                                    {'-', 0}
                                                                 };
 
         public RpnTransformer(Dictionary<char, IOperation> operations)
@@ -39,16 +39,28 @@ namespace CalculatorTDD
                 string s = string.Empty + input[pos];
                 bool isNumber = true;
                 if (Char.IsDigit(input[pos]))
-                    for (int i = pos + 1; i < input.Length &&
-                        (Char.IsDigit(input[i]) || input[i] == ',' || input[i] == '.'); i++)
+                {
+                    for (int i = pos + 1; (i < input.Length) && (Char.IsDigit(input[i])); i++)
+                    {
                         s += input[i];
+                    }
+                }
                 else
                 {
-                    if (SymbolsStack.Count != 0 && Priorities.ContainsKey(SymbolsStack.Peek()) && Priorities.ContainsKey(input[pos].ToString()) && Priorities[input[pos].ToString()] < Priorities[SymbolsStack.Peek()])
+                    if (SymbolsStack.Count != 0 && Priorities.ContainsKey(SymbolsStack.Peek()) && Priorities.ContainsKey(input[pos]) && Priorities[input[pos]] < Priorities[SymbolsStack.Peek()])
                     {
                         var operation = SymbolsStack.Pop();
-                        SymbolsStack.Push(s);
-                        s = operation;
+                        if (s.Length == 1)
+                        {
+                            var chr = Convert.ToChar(s);
+                            SymbolsStack.Push(chr);
+                        }
+                        else
+                        {
+                            throw new FormatException();
+                        }
+                        
+                        s = operation.ToString();
                     }
                     else if (input[pos].ToString() == ")")
                     {
@@ -58,11 +70,12 @@ namespace CalculatorTDD
                         while (SymbolsStack.Count != 0)
                         {
                             var symbol = SymbolsStack.Pop();
-                            if (symbol != "(")
+                            if (symbol != '(')
                             {
                                 if (s == string.Empty)
                                 {
-                                    s += ' ' + symbol;
+                                    s += ' ';
+                                    s += symbol;
                                     pos += 1;
                                 }
                                 else
@@ -88,9 +101,9 @@ namespace CalculatorTDD
                     }
                     else
                     {
-                        if (Priorities.ContainsKey(input[pos].ToString()) || input[pos] == '(')
+                        if (Priorities.ContainsKey(input[pos]) || input[pos] == '(')
                         {
-                            SymbolsStack.Push(input[pos].ToString());
+                            SymbolsStack.Push(input[pos]);
                             isNumber = false;
                         }
                         else
@@ -119,17 +132,16 @@ namespace CalculatorTDD
             while (SymbolsStack.Count != 0)
             {
                 var symbol = SymbolsStack.Pop();
-                if (symbol == "(" || symbol == ")")
+                if (symbol == '(' || symbol == ')')
                 {
                     throw new FormatException();
                 }
 
-                output += ' ' + symbol;
+                output += ' ';
+                output += symbol;
             }
 
             return output;
         }
-
-
     }
 }
