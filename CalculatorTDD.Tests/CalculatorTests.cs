@@ -70,5 +70,40 @@ namespace CalculatorTDD.Tests
         {
             Assert.Throws(typeof(ArgumentException), () => calculator.Calculate("4/0"));
         }
+
+        [Fact]
+        public void SimpleSubtractionTest()
+        {
+            var result = calculator.Calculate("5-4");
+            Assert.Equal(1, result);
+        }
+
+        [Fact]
+        public void SimpleSubtractionWithNegativeResult()
+        {
+            var result = calculator.Calculate("4-5");
+            Assert.Equal(-1, result);
+        }
+
+        [Fact]
+        public void SimpleDivisionOperandsDividedEvenly()
+        {
+            var result = calculator.Calculate("8/2");
+            Assert.Equal(4, result);
+        }
+
+        [Fact]
+        public void SimpleDivisionOperandsDoNotDividedEvenly()
+        {
+            var result = calculator.Calculate("5/2");
+            Assert.Equal(2, result);
+        }
+
+        [Fact]
+        public void SimpleDivisionResultLessThan1()
+        {
+            var result = calculator.Calculate("4/5");
+            Assert.Equal(0, result);
+        }
     }
 }

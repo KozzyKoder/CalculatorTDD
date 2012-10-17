@@ -50,7 +50,7 @@ namespace CalculatorTDD
                     var number1 = _evalStack.Pop();
                     var number2 = _evalStack.Pop();
                     var operation = _operations[chr];
-                    if (operation.Sign() == '/')
+                    if (operation.Sign() == '/' && number1 == 0)
                     {
                         throw new ArgumentException();
                     }
