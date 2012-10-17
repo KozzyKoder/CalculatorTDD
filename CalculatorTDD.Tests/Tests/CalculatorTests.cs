@@ -89,6 +89,13 @@ namespace CalculatorTDD.Tests.Tests
         }
 
         [Fact]
+        public void SimpleSubtractionWithPositiveResultAndBrackets()
+        {
+            var result = calculator.Calculate("(12-5)");
+            Assert.Equal(7, result);
+        }
+
+        [Fact]
         public void SimpleDivisionOperandsDividedEvenly()
         {
             var result = calculator.Calculate("8/2");
@@ -114,6 +121,13 @@ namespace CalculatorTDD.Tests.Tests
         {
             var result = calculator.Calculate("(1-2)*5");
             Assert.Equal(-5, result);
+        }
+
+        [Fact]
+        public void LongExpressionWithDifferentKindOfOperations()
+        {
+            var result = calculator.Calculate("(12+5)*4+5+5*6+(-12*5)");
+            Assert.Equal(43, result);
         }
     }
 }

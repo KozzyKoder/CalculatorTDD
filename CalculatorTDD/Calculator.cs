@@ -34,10 +34,10 @@ namespace CalculatorTDD
             foreach (var token in RevPolNotTokens)
             {
                 char chr = '\n';
-                if (token.Text.Length == 1)
+                if (token.Text.Length >= 1)
                 {
-                    chr = Convert.ToChar(token.Text);
-                    if (Char.IsDigit(chr))
+                    chr = Convert.ToChar(token.Text.First());
+                    if (Char.IsDigit(chr) || ((chr == '+' || chr == '-') && token.Text.Length > 1 && Char.IsDigit(token.Text[1])))
                     {
                         var numberValue = 0;
                         if (!int.TryParse(token.Text, out numberValue))

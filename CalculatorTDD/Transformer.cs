@@ -85,7 +85,7 @@ namespace CalculatorTDD
 
                         if (_operations.ContainsKey(operationTokenSign) || operationTokenSign == '(')
                         {
-                            if (isPreviousSymbolOperation)
+                            if (isPreviousSymbolOperation && operationTokenSign != '(')
                             {
                                 throw new FormatException();
                             }
