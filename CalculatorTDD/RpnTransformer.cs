@@ -103,8 +103,7 @@ namespace CalculatorTDD
                         else
                         {
                             throw new ArgumentException();
-                        }
-                        
+                        }                        
                     }
                 }
 

@@ -50,7 +50,11 @@ namespace CalculatorTDD
                     var number1 = _evalStack.Pop();
                     var number2 = _evalStack.Pop();
                     var operation = _operations[chr];
-                    var result = operation.Execute(number1, number2);
+                    if (operation.Sign() == '/')
+                    {
+                        throw new ArgumentException();
+                    }
+                    var result = operation.Execute(number2, number1);
                     _evalStack.Push(result);
                 }
                 else

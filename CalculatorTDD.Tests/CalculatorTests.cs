@@ -64,5 +64,11 @@ namespace CalculatorTDD.Tests
             var result = calculator.Calculate("3*2");
             Assert.Equal(6, result);
         }
+
+        [Fact]
+        public void DivisionByZeroThrowsArgumentException()
+        {
+            Assert.Throws(typeof(ArgumentException), () => calculator.Calculate("4/0"));
+        }
     }
 }
