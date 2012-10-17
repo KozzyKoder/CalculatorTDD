@@ -46,6 +46,7 @@
     <Compile Include="Lexer.cs" />
     <Compile Include="Operations\AdditionOperation.cs" />
     <Compile Include="Calculator.cs" />
+    <Compile Include="Operations\BaseOperation.cs" />
     <Compile Include="Operations\DivisionOperation.cs" />
     <Compile Include="Operations\IOperation.cs" />
     <Compile Include="Operations\MultiplicationOperation.cs" />

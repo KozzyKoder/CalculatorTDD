@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.Serialization;
 using CalculatorTDD.Enums;
 
 namespace CalculatorTDD.Operations
