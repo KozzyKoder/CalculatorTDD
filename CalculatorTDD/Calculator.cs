@@ -42,7 +42,7 @@ namespace CalculatorTDD
                         var numberValue = 0;
                         if (!int.TryParse(token.Text, out numberValue))
                         {
-                            throw new ArgumentException();
+                            throw new ArgumentException("Could not parse number");
                         }
                         _evalStack.Push(numberValue);
                         continue;
@@ -56,14 +56,14 @@ namespace CalculatorTDD
                     var operation = _operations[chr];
                     if (operation.Sign() == '/' && number1 == 0)
                     {
-                        throw new ArgumentException();
+                        throw new ArgumentException("Error occured on performing calculation: division by zero");
                     }
                     var result = operation.Execute(number2, number1);
                     _evalStack.Push(result);
                 }
                 else
                 {
-                    throw new InvalidOperationException();
+                    throw new InvalidOperationException("No operation with this sign found");
                 }
             }
             

@@ -72,9 +72,10 @@ namespace CalculatorTDD
                 }
                 else
                 {
-                    throw new FormatException();
+                    throw new FormatException(string.Format("Unexpected symbol occured on lexem analyze: {0}", input[pos]));
                 }
             }
+            _tokens.Clear();
         }
     }
 }
