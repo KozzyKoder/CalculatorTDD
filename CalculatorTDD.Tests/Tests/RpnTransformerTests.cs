@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using CalculatorTDD.Operations;
 using CalculatorTDD.Tests.TestFixtures;
 using Xunit;
 
-namespace CalculatorTDD.Tests
+namespace CalculatorTDD.Tests.Tests
 {    
     public class RpnTransformerTests : IUseFixture<OperationsSetupFixture>
     {
