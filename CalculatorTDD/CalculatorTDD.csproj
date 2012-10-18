@@ -53,6 +53,7 @@
     <Compile Include="Operations\DivisionOperation.cs" />
     <Compile Include="Operations\IOperation.cs" />
     <Compile Include="Operations\MultiplicationOperation.cs" />
+    <Compile Include="Operations\NumberTransformOperation.cs" />
     <Compile Include="Operations\SubtractionOperation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -17,6 +17,10 @@ namespace CalculatorTDD.Operations
         public IOperation Init(Dictionary<char, Priority> priorities, char sign, Func<int,int,int> operationBody)
         {
             _priorities = priorities;
+            if (!priorities.ContainsKey(sign))
+            {
+                _priorities.Add(sign, Priority.TheSame);
+            }
             _sign = sign;
             _operationBody = operationBody;
             _initialized = true;
