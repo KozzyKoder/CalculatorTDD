@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppSettings.cs" />
+    <Compile Include="Attributes\SkipOperationAttribute.cs" />
     <Compile Include="Enums\Priorities.cs" />
     <Compile Include="ILexer.cs" />
     <Compile Include="ITransformer.cs" />
