@@ -11,14 +11,14 @@ namespace CalculatorTDD
     public class Lexer : ILexer
     {
         private readonly Dictionary<char, IOperation> _operations;
+        private readonly Dictionary<char, NumberTransformOperation> _numberTransformOperations;
         private readonly Stack<Token> _tokens = new Stack<Token>();
 
-        public Lexer(Dictionary<char, IOperation> operations)
+        public Lexer(Dictionary<char, IOperation> operations, Dictionary<char, NumberTransformOperation> numberTransformOperations)
         {
             _operations = operations;
+            _numberTransformOperations = numberTransformOperations;
         }
-        
-        private Lexer() {}
 
         public IEnumerable<Token> Tokenize(string input)
         {
@@ -43,9 +43,9 @@ namespace CalculatorTDD
                     pos += nextTokenText.Length;
                     yield return token;
                 }
-                else if ((_tokens.Count != 0 && _tokens.Peek().Kind == TokenKind.Operation && (nextSymbol == '+' || nextSymbol == '-')) ||
-                         (_tokens.Count != 0 && _tokens.Peek().Kind == TokenKind.Bracket && _tokens.Peek().Text != ")" && (nextSymbol == '+' || nextSymbol == '-')) ||
-                         (_tokens.Count == 0 && (nextSymbol == '+' || nextSymbol == '-')))
+                else if ((_tokens.Count != 0 && _tokens.Peek().Kind == TokenKind.Operation && (_numberTransformOperations.ContainsKey(nextSymbol))) ||
+                         (_tokens.Count != 0 && _tokens.Peek().Kind == TokenKind.Bracket && _tokens.Peek().Text != ")" && (_numberTransformOperations.ContainsKey(nextSymbol))) ||
+                         (_tokens.Count == 0 && (_numberTransformOperations.ContainsKey(nextSymbol))))
                 {
                     for (int i = pos + 1; (i < input.Length) && (Char.IsDigit(input[i])); i++)
                     {

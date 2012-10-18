@@ -15,7 +15,7 @@ namespace CalculatorTDD.Tests.Tests
             var mockLexer = new Mock<ILexer>();
             mockLexer.Setup(p => p.Tokenize(It.IsAny<string>())).Returns<IEnumerable<Token>>(p => new List<Token>());
 
-            calculator = new Calculator(data.Operations);
+            calculator = new Calculator(data.Operations, data.NumberTransformOperations);
             calculator._lexer = mockLexer.Object;
         }
 

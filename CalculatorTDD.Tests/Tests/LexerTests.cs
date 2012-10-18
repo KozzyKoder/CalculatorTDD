@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using CalculatorTDD.Operations;
 using CalculatorTDD.Tests.TestFixtures;
 using CalculatorTDD.Tests.TestHelpers;
 using Xunit;
@@ -13,7 +14,7 @@ namespace CalculatorTDD.Tests.Tests
         
         public void SetFixture(OperationsSetupFixture data)
         {
-            _lexer = new Lexer(data.Operations);
+            _lexer = new Lexer(data.Operations, data.NumberTransformOperations);
         }
 
         [Fact]

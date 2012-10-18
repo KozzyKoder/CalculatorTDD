@@ -15,7 +15,7 @@ namespace CalculatorTDD
         {
             try
             {
-                var calculator = new Calculator(AppSettings.Operations);
+                var calculator = new Calculator(AppSettings.Operations, AppSettings.NumberTransformOperations);
                 var expression = Console.ReadLine();
                 Console.WriteLine(calculator.Calculate(expression));
                 Console.ReadKey();

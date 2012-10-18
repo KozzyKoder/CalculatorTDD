@@ -13,6 +13,10 @@ namespace CalculatorTDD.Tests.TestFixtures
         {
             get { return AppSettings.Operations; }
         }
-                                                       
+
+        public Dictionary<char, NumberTransformOperation> NumberTransformOperations
+        {
+            get { return AppSettings.NumberTransformOperations; }
+        }                                      
     }
 }

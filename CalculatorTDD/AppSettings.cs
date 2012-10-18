@@ -12,7 +12,7 @@ namespace CalculatorTDD
     public static class AppSettings
     {
         private static Dictionary<char, IOperation> _operations = null;
-        private static Dictionary<char, IOperation> _numberTransformOperations = null;
+        private static Dictionary<char, NumberTransformOperation> _numberTransformOperations = null;
         private static IEnumerable<Type> _operationTypes = null;
 
         private static IEnumerable<Type> OperationTypes
@@ -46,7 +46,7 @@ namespace CalculatorTDD
             }
         }
 
-        public static Dictionary<char, IOperation> NumberTransformOperations
+        public static Dictionary<char, NumberTransformOperation> NumberTransformOperations
         {
             get
             {
@@ -56,10 +56,10 @@ namespace CalculatorTDD
                                                         where type.IsSubclassOf(typeof(NumberTransformOperation))
                                                         select type;
 
-                    _numberTransformOperations = new Dictionary<char, IOperation>();
+                    _numberTransformOperations = new Dictionary<char, NumberTransformOperation>();
                     foreach (var operationType in numberTransformOperationTypes)
                     {
-                        var operation = (IOperation)operationType.GetConstructor(new Type[] { }).Invoke(new object[] { });
+                        var operation = (NumberTransformOperation)operationType.GetConstructor(new Type[] { }).Invoke(new object[] { });
                         _numberTransformOperations.Add(operation.Sign(), operation);
                     }
                 }

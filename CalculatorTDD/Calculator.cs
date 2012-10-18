@@ -10,17 +10,17 @@ namespace CalculatorTDD
     {
         private readonly Stack<int> _evalStack = new Stack<int>();
         private readonly Dictionary<char, IOperation> _operations;
+        private readonly Dictionary<char, NumberTransformOperation> _numberTransformOperations;
         public ILexer _lexer { get; set; }
         public ITransformer _transformer { get; set; }
 
-        public Calculator(Dictionary<char, IOperation> operations)
+        public Calculator(Dictionary<char, IOperation> operations, Dictionary<char, NumberTransformOperation> numberTransformOperations)
         {
             _operations = operations;
-            _lexer = new Lexer(_operations);
+            _numberTransformOperations = numberTransformOperations;
+            _lexer = new Lexer(_operations, _numberTransformOperations);
             _transformer = new Transformer(_operations);
         }
-        
-        private Calculator() {}
 
         public int Calculate(string expression)
         {
@@ -28,8 +28,7 @@ namespace CalculatorTDD
             {
                 throw new ArgumentException();
             }
-
-            var lexer = new Lexer(_operations);
+            var lexer = new Lexer(_operations, _numberTransformOperations);
             var transformer = new Transformer(_operations);
 
             var lexems = lexer.Tokenize(expression).ToList();
@@ -41,7 +40,7 @@ namespace CalculatorTDD
                 if (token.Text.Length >= 1)
                 {
                     chr = Convert.ToChar(token.Text.First());
-                    if (Char.IsDigit(chr) || ((chr == '+' || chr == '-') && token.Text.Length > 1 && Char.IsDigit(token.Text[1])))
+                    if (Char.IsDigit(chr))
                     {
                         var numberValue = 0;
                         if (!int.TryParse(token.Text, out numberValue))
@@ -49,6 +48,17 @@ namespace CalculatorTDD
                             throw new ArgumentException("Could not parse number");
                         }
                         _evalStack.Push(numberValue);
+                        continue;
+                    }
+                    else if ((_numberTransformOperations.ContainsKey(chr)) && token.Text.Length > 1 && Char.IsDigit(token.Text[1]))
+                    {
+                        var numberValue = 0;
+                        if (!int.TryParse(token.Text.Substring(1), out numberValue))
+                        {
+                            throw new ArgumentException("Could not parse number");
+                        }
+                        var transformedNumber = _numberTransformOperations[chr].Transformation(numberValue);
+                        _evalStack.Push(transformedNumber);
                         continue;
                     }
                 }
