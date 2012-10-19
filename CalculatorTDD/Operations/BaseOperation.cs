@@ -14,10 +14,17 @@ namespace CalculatorTDD.Operations
         private Func<int, int, int> _operationBody;
         private Dictionary<char, Priority> _priorities; 
         
-        public IOperation Init(Dictionary<char, Priority> priorities, char sign, Func<int,int,int> operationBody)
+        public IOperation Init(Dictionary<Priority, char[]> priorities, char sign, Func<int,int,int> operationBody)
         {
-            _priorities = priorities;
-            if (!priorities.ContainsKey(sign))
+            _priorities = new Dictionary<char, Priority>();
+            foreach (var priority in priorities)
+            {
+                foreach (var symbol in priority.Value)
+                {
+                    _priorities.Add(symbol, priority.Key);
+                }
+            }
+            if (!_priorities.ContainsKey(sign))
             {
                 _priorities.Add(sign, Priority.TheSame);
             }

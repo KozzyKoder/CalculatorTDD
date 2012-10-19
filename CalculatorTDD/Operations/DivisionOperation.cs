@@ -10,11 +10,10 @@ namespace CalculatorTDD.Operations
     {
         public DivisionOperation()
         {
-            Init(new Dictionary<char, Priority>()
+            Init(new Dictionary<Priority, char[]>()
                      {
-                         {'-', Priority.Larger},
-                         {'+', Priority.Larger},
-                         {'*', Priority.TheSame}
+                         {Priority.Larger, new []{'+', '-'}},
+                         {Priority.TheSame, new []{'*'}}
                      }, '/', (i, i1) => i/i1 );
         }
     }

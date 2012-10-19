@@ -3,41 +3,52 @@
     <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Enums/f:TokenKind.cs" caret="113" fromTop="6" />
     <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Enums/f:Priorities.cs" caret="221" fromTop="11" />
     <File id="C8FCCCF7-8637-46F3-BDF8-4C581C8ED1C4/f:packages.config" caret="0" fromTop="0" />
-    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/f:Calculator.cs" caret="2270" fromTop="32" />
-    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/f:Transformer.cs" caret="3898" fromTop="60" />
-    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Operations/f:IOperation.cs" caret="289" fromTop="13" />
-    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/f:Token.cs" caret="1287" fromTop="19" />
-    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/f:Lexer.cs" caret="1395" fromTop="6" />
-    <File id="C8FCCCF7-8637-46F3-BDF8-4C581C8ED1C4/d:Tests/f:TransformerTests.cs" caret="6320" fromTop="29" />
-    <File id="C8FCCCF7-8637-46F3-BDF8-4C581C8ED1C4/d:Tests/f:LexerTests.cs" caret="4660" fromTop="23" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/f:Program.cs" caret="458" fromTop="17" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/f:AppSettings.cs" caret="2116" fromTop="23" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/f:Transformer.cs" caret="1592" fromTop="18" />
+    <File id="C8FCCCF7-8637-46F3-BDF8-4C581C8ED1C4/d:TestFixtures/f:OperationsSetupFixture.cs" caret="436" fromTop="14" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Attributes/f:SkipOperationAttribute.cs" caret="247" fromTop="12" />
     <File id="C8FCCCF7-8637-46F3-BDF8-4C581C8ED1C4/d:TestHelpers/f:CollectionEquivalenceComparer.cs" caret="374" fromTop="12" />
-    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Operations/f:AdditionOperation.cs" caret="141" fromTop="6" />
-    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Operations/f:MultiplicationOperation.cs" caret="222" fromTop="9" />
-    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Operations/f:SubtractionOperation.cs" caret="219" fromTop="9" />
-    <File id="C8FCCCF7-8637-46F3-BDF8-4C581C8ED1C4/d:Tests/f:CalculatorTests.cs" caret="366" fromTop="12" />
-    <File id="C8FCCCF7-8637-46F3-BDF8-4C581C8ED1C4/d:TestFixtures/f:OperationsSetupFixture.cs" caret="2125" fromTop="16" />
-    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/f:Program.cs" caret="2646" fromTop="19" />
-    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Operations/f:DivisionOperation.cs" caret="216" fromTop="9" />
-    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Operations/f:BaseOperation.cs" caret="2004" fromTop="62" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Operations/f:DivisionOperation.cs" caret="488" fromTop="16" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Operations/f:IOperation.cs" caret="289" fromTop="13" />
+    <File id="C8FCCCF7-8637-46F3-BDF8-4C581C8ED1C4/d:Tests/f:TransformerTests.cs" caret="734" fromTop="26" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/f:ITransformer.cs" caret="226" fromTop="9" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Operations/f:NumberTransformOperation.cs" caret="229" fromTop="9" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/f:App.config" caret="0" fromTop="0" />
+    <File id="C8FCCCF7-8637-46F3-BDF8-4C581C8ED1C4/d:Tests/f:CalculatorTests.cs" caret="681" fromTop="20" />
+    <File id="C8FCCCF7-8637-46F3-BDF8-4C581C8ED1C4/d:Tests/f:LexerTests.cs" caret="3030" fromTop="73" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/f:ILexer.cs" caret="218" fromTop="12" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Operations/f:SubtractionOperation.cs" caret="539" fromTop="20" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/f:Token.cs" caret="1287" fromTop="19" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/f:Lexer.cs" caret="1022" fromTop="22" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Operations/f:AdditionOperation.cs" caret="492" fromTop="15" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Operations/f:BaseOperation.cs" caret="662" fromTop="19" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Operations/f:MultiplicationOperation.cs" caret="566" fromTop="19" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/f:Calculator.cs" caret="1280" fromTop="9" />
   </RecentFiles>
   <RecentEdits>
     <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Enums/f:Priorities.cs" caret="150" fromTop="7" />
     <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Enums/f:TokenKind.cs" caret="18" fromTop="0" />
     <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/f:Token.cs" caret="1400" fromTop="17" />
     <File id="C8FCCCF7-8637-46F3-BDF8-4C581C8ED1C4/d:TestHelpers/f:CollectionEquivalenceComparer.cs" caret="1081" fromTop="34" />
-    <File id="C8FCCCF7-8637-46F3-BDF8-4C581C8ED1C4/d:Tests/f:LexerTests.cs" caret="4524" fromTop="32" />
-    <File id="C8FCCCF7-8637-46F3-BDF8-4C581C8ED1C4/d:Tests/f:TransformerTests.cs" caret="5444" fromTop="11" />
-    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/f:Transformer.cs" caret="2633" fromTop="26" />
-    <File id="C8FCCCF7-8637-46F3-BDF8-4C581C8ED1C4/d:Tests/f:CalculatorTests.cs" caret="1526" fromTop="12" />
-    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/f:Lexer.cs" caret="3013" fromTop="19" />
-    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/f:Calculator.cs" caret="1455" fromTop="20" />
     <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Operations/f:IOperation.cs" caret="289" fromTop="7" />
-    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Operations/f:AdditionOperation.cs" caret="141" fromTop="6" />
-    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Operations/f:MultiplicationOperation.cs" caret="222" fromTop="9" />
-    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Operations/f:SubtractionOperation.cs" caret="219" fromTop="9" />
-    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/f:Program.cs" caret="4115" fromTop="30" />
-    <File id="C8FCCCF7-8637-46F3-BDF8-4C581C8ED1C4/d:TestFixtures/f:OperationsSetupFixture.cs" caret="263" fromTop="4" />
-    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Operations/f:BaseOperation.cs" caret="1749" fromTop="7" />
-    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Operations/f:DivisionOperation.cs" caret="216" fromTop="9" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/f:ILexer.cs" caret="164" fromTop="9" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/f:ITransformer.cs" caret="226" fromTop="9" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/f:Transformer.cs" caret="224" fromTop="7" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Operations/f:NumberTransformOperation.cs" caret="229" fromTop="9" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Operations/f:BaseOperation.cs" caret="735" fromTop="21" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Operations/f:DivisionOperation.cs" caret="438" fromTop="15" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Operations/f:MultiplicationOperation.cs" caret="500" fromTop="16" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Operations/f:SubtractionOperation.cs" caret="464" fromTop="18" />
+    <File id="C8FCCCF7-8637-46F3-BDF8-4C581C8ED1C4/d:Tests/f:TransformerTests.cs" caret="471" fromTop="16" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Attributes/f:SkipOperationAttribute.cs" caret="173" fromTop="7" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/d:Operations/f:AdditionOperation.cs" caret="150" fromTop="6" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/f:Program.cs" caret="457" fromTop="17" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/f:AppSettings.cs" caret="2531" fromTop="17" />
+    <File id="C8FCCCF7-8637-46F3-BDF8-4C581C8ED1C4/d:TestFixtures/f:OperationsSetupFixture.cs" caret="436" fromTop="14" />
+    <File id="C8FCCCF7-8637-46F3-BDF8-4C581C8ED1C4/d:Tests/f:LexerTests.cs" caret="505" fromTop="16" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/f:Lexer.cs" caret="982" fromTop="0" />
+    <File id="C8FCCCF7-8637-46F3-BDF8-4C581C8ED1C4/d:Tests/f:CalculatorTests.cs" caret="491" fromTop="15" />
+    <File id="1977E367-1AA6-4A79-92B7-7F151EB55523/f:Calculator.cs" caret="1280" fromTop="9" />
   </RecentEdits>
 </RecentFiles>

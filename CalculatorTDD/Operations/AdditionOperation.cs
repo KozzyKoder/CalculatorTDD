@@ -9,11 +9,10 @@ namespace CalculatorTDD.Operations
     {
         public AdditionOperation()
         {
-            Init(new Dictionary<char, Priority>()
+            Init(new Dictionary<Priority, char[]>()
                      {
-                         {'-', Priority.TheSame},
-                         {'/', Priority.Lesser},
-                         {'*', Priority.Lesser}
+                         {Priority.TheSame, new [] {'-'}},
+                         {Priority.Lesser, new [] {'/', '*'}}
                      }, '+', (i, i1) => i + i1 );
         }
     }

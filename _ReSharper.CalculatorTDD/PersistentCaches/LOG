@@ -1,5 +1,5 @@
-2012/10/18-01:16:39.439 b80 Recovering log #15
-2012/10/18-01:16:39.439 b80 Level-0 table #18: started
-2012/10/18-01:16:39.549 b80 Level-0 table #18: 82176 bytes OK
-2012/10/18-01:16:39.609 b80 Delete type=0 #15
-2012/10/18-01:16:39.619 b80 Delete type=3 #13
+2012/10/19-07:58:24.280 dc4 Recovering log #19
+2012/10/19-07:58:24.374 dc4 Level-0 table #21: started
+2012/10/19-07:58:24.623 dc4 Level-0 table #21: 93013 bytes OK
+2012/10/19-07:58:24.935 dc4 Delete type=0 #19
+2012/10/19-07:58:24.935 dc4 Delete type=3 #17
